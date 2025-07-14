@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms</title>
+    <link rel="icon" href="./image/background-image.jpg">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>STUDENT FORM</h1>
+
+    <form>
+      <table class="table-1">
+        <tr>
+          <th>Name</th>
+          <td><input type="text" id="name" /></td>
+        </tr>
+        <tr>
+          <th>Age</th>
+          <td><input type="number" id="age" value="age" /></td>
+        </tr>
+        <tr>
+          <th>Gender</th>
+          <td>
+            <input
+              type="radio"
+              id="Male"
+              name="Gender"
+              value="male"
+              class="gender"
+            /><label for="male">Male</label
+            ><input
+              type="radio"
+              id="female"
+              name="Gender"
+              value="female"
+              class="gender"
+            /><label for="female">Female</label>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Email</th>
+          <td>
+            <input type="email" id="email" placeholder="Enter your email " />
+          </td>
+        </tr>
+        <tr>
+          <th>Course</th>
+          <td>
+            <select id="course">
+              <option>Javascript</option>
+              <option>SQL</option>
+              <option>HTML</option>
+              <option>CSS</option>
+              <option>React</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th>Address</th>
+          <td><textarea name="text" id="address"></textarea></td>
+        </tr>
+        <tr>
+          
+          <td colspan="2"><button id="btn" onclick="formdata(event)" >Save</button></td>
+        </tr>
+      </table>
+    </form>
+
+    <div id="output" ></div>
+     <script>
+      function formdata() {
+        event.preventDefault();
+      var name = document.getElementById("name").value;
+      var age = document.getElementById("age").value;
+      var gender = document.querySelector(".gender").value;
+      var email = document.getElementById("email").value;
+      var course = document.getElementById("course").value;
+      var address = document.getElementById("address").value;
+      var button = document.getElementById("btn").value;
+      
+        const output = `
+          <table border="1" class="table-2" >
+            <tr>
+              
+              <th>Name</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Email</th>
+              <th>Course</th>
+              <th>Address</th>
+            </tr>
+            <td> ${name}</td>
+            <td> ${age}</td>
+            <td> ${gender} </td>
+            <td> ${email}</td>
+            <td> ${course}</td>
+            <td> ${address}</td>
+          </table>
+          <button  id="delete" onclick="deletedata()">Delete</button>
+        `;
+        document.getElementById("output").innerHTML = output;
+      }
+      function deletedata(){
+        document.getElementById("output").innerHTML="";
+
+      }
+    </script>
+
+   
+  </body>
+</html>
